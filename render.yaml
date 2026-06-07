@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: icici-market-analytics
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MARKET_DATA_PROVIDER
+        value: mock
+      - key: UNIVERSE_SIZE_LIMIT
+        value: "20"
+      - key: DATABASE_URL
+        value: sqlite:///data/market_data.db
+      - key: LOG_LEVEL
+        value: INFO
+    healthCheckPath: /_stcore/health
